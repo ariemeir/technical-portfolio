@@ -8,14 +8,16 @@ from an Android tablet over Bluetooth.
   <img src="docs/images/driver-unit-assembled.jpg" width="720"
        alt="The assembled handheld driver unit: a 3D-printed orange enclosure with an acrylic top plate, gripped handle, and the lead screw and rod visible through the window.">
   <br>
-  <em>The handheld driver unit. The clinician holds this against the patient over
-  the implant site; the lead screw visible under the acrylic couples to the
-  implanted rod and turns it.</em>
+  <em><strong>v1</strong> — 3D-printed housing, acrylic top plate, brass inserts and
+  drive coil. The clinician holds this against the patient over the implant site;
+  the drive coil couples magnetically through tissue to the implant's internal
+  mechanism.</em>
 </p>
 
 Built ~2012–2013. Author: Arie Meir. Institutional work — see [NOTICE.md](NOTICE.md).
 
-**→ [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant)**
+**→ [Read the one-page case study (PDF)](docs/roboimplant-case-study-arie-meir.pdf)**
+· [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant)
 
 > **Reference only.** Not a cleared or approved medical device. Not for clinical
 > use. All sample patient data in this repository is fictitious.
@@ -52,9 +54,14 @@ telemetry, and stops the moment anything looks wrong.
                                                                                    └─────────┘
 ```
 
-The clinician enters a **dosage** in millimetres. The controller converts that to
-a target number of motor rotations, spins the motor, counts rotations via an
-interrupt, and stops when the target is reached.
+The clinician enters a **dose** — the console works in micrometres, typically
+**20 µm per increment**, with cumulative elongation displayed in millimetres. The
+controller converts the dose to a target number of motor rotations, spins the
+motor, counts rotations via an interrupt, and stops when the target is reached.
+
+Available drive torque falls off as the distance between actuator and implant
+grows, which is why the system carries dedicated calibration routines for both
+coupling and extension behaviour.
 
 **Coupling detection is the safety-critical part.** The driver is only actually
 turning the implant when it is mechanically engaged with it. Engagement shows up
@@ -69,8 +76,8 @@ credited with lengthening it didn't do.
   <img src="docs/images/prototype-bench.jpg" width="720"
        alt="The driver unit opened up on a workbench, showing hand-soldered perfboard with the ATmega microcontroller, wiring, and the motor and lead screw inside a clear acrylic housing.">
   <br>
-  <em>Earlier bench build with the housing open — hand-soldered perfboard carrying
-  the ATmega and the motor driver, alongside the motor and lead screw.</em>
+  <em><strong>v2</strong> — machined polycarbonate body with the controller
+  electronics integrated alongside the coil assembly, shown open on the bench.</em>
 </p>
 
 ## The clinician console

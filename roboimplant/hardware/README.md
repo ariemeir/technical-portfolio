@@ -7,9 +7,9 @@
 | | |
 |:--:|:--:|
 | <img src="../docs/images/driver-unit-assembled.jpg" width="380" alt="Assembled driver unit in a 3D-printed orange enclosure with acrylic top plate and gripped handle."> | <img src="../docs/images/prototype-bench.jpg" width="380" alt="Driver unit opened on a workbench showing hand-soldered perfboard, the ATmega, motor and lead screw."> |
-| **Assembled unit** — 3D-printed housing, acrylic top plate, indicator LEDs, and the lead screw that couples to the implant. | **Bench build** — hand-soldered perfboard carrying the ATmega and motor driver, before the enclosure was finalized. |
+| **v1** — 3D-printed housing, acrylic top plate, brass inserts and drive coil. | **v2** — machined polycarbonate body with the controller electronics integrated alongside the coil assembly. |
 
-The SolidWorks files below model the assembled unit on the left.
+The SolidWorks files below model the v1 unit on the left.
 
 ## `pcb/` — controller board
 
