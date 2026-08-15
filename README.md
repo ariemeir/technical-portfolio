@@ -88,6 +88,61 @@ See [`3dscanner/NOTICE.md`](3dscanner/NOTICE.md) for rights and attribution.
 
 ---
 
+### [WifeSignal](wifesignal/) — a traffic light for the office door
+
+A three-colour desk lamp that lets one person in the house tell another *how much
+this can wait*. The office is a separate building: music on, windows closed, phone
+face-down and unchecked for hours — which is the point, and which makes it a sealed
+box. Text-and-hope fails when it matters; walking over always costs an interruption
+whether or not the thing was urgent. The missing piece was never notification, it
+was **priority expressed before the interruption happens**. Five components across
+four disciplines:
+
+- **iOS** — a SwiftUI app in 333 lines with no third-party packages and no
+  Bluetooth: three priority buttons, a 5 s status poll, and a *Waiting… → Seen ♥*
+  acknowledgement card that closes the loop for the sender.
+- **Server** — a 290-line aiohttp + bleak bridge on a Mac, sharing one asyncio event
+  loop, that exists because an iPhone cannot reliably be a BLE central for a device
+  in another building. Bearer auth with constant-time comparison, exposed to a
+  Tailscale tailnet only.
+- **Embedded** — ESP32-C3 firmware over NimBLE exposing one service, one
+  characteristic, one byte, with physical button presses as the acknowledgement path.
+- **Electronics** — a custom two-layer KiCad board: three low-side lamp drivers,
+  entirely through-hole, shaped and notched to match the enclosure.
+- **Mechanical** — a 440-line Fusion 360 *script* that generates the two-part
+  enclosure from derived dimensions, versioned in-band and guarded step by step.
+
+<p align="center">
+  <img src="wifesignal/docs/images/signal-lit-green-on-desk.jpg" width="620"
+       alt="A small black 3D-printed traffic light standing on a pale wooden desk beside a round black speaker. Its red and yellow lenses are dark; the bottom green lens glows brightly and casts a pool of green light across the desk.">
+  <br>
+  <em>Green — <strong>whenever you're free</strong>. The speaker beside it is the
+  reason the project exists.</em>
+</p>
+
+```
+tap ─→ HTTPS ─→ aiohttp ─→ 1 byte ─→ ESP32-C3 ─→ lamp ─→ physical ─→ "Seen ♥"
+       tailnet   desired    over BLE   NimBLE              press       on her
+       only      state                                     = ack       phone
+```
+
+The engineering centrepiece is the return path. Because the state characteristic is
+bidirectional, three different events — the server's own write echoed back, a human
+pressing the button, and a device that has drifted — all arrive as an identical
+one-byte notification. They are separated with no timers, correlation IDs, or
+sequence numbers: every notify is simply compared against the state the server
+already intends, which collapses the whole problem into three branches and makes
+recovery after a reboot or a reflash automatic.
+
+**→ [Read the case study](wifesignal/)**
+· [Server](wifesignal/server/) · [iOS app](wifesignal/app/)
+· [Firmware](wifesignal/firmware/) · [Hardware](wifesignal/device/)
+
+Personal project, 2026. In daily use.
+See [`wifesignal/NOTICE.md`](wifesignal/NOTICE.md) for rights and attribution.
+
+---
+
 Each project directory carries its own README and rights notice. Unless stated
 otherwise in a project's `NOTICE.md`, this work is published for reference only
 and is not offered under an open-source license.

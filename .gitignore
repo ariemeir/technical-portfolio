@@ -44,3 +44,7 @@ scans/
 output/
 logs/
 config/scanner.yaml
+
+# ...but KiCad fabrication output is design data, not runtime output:
+# these gerbers are the exact files the board was ordered from.
+!wifesignal/device/WifeSignalPCB/output/
