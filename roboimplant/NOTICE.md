@@ -68,8 +68,10 @@ verified. They remain in the original working folder.
   3D model library. Their removal means the app's 3D spine view has no geometry
   to load. Rod geometry (`rod.obj`, `rod.dae`, `Metal Rod.skp`, `rod_obj`) is
   original and retained.
-- **Presentation imagery** — animated gear clipart and spine photographs of
-  unknown, likely web-sourced origin.
+- **Presentation imagery** — animated gear clipart and stock spine photographs of
+  unknown, likely web-sourced origin. (The images now in `docs/images/` are
+  different files: original screenshots and bench photographs of this system,
+  taken by the author.)
 - **`firmware/sdcard/source_code_snippets_from_mozzi.c`** — no header, no
   attribution, filename implying the Mozzi Arduino library (LGPL-3.0 at the
   time), and not referenced by any build.

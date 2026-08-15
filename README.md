@@ -23,6 +23,13 @@ across four disciplines:
   including the analog current/voltage sensing chain.
 - **Mechanical** — SolidWorks enclosure for the handheld driver unit.
 
+<p align="center">
+  <img src="roboimplant/docs/images/driver-unit-assembled.jpg" width="640"
+       alt="The assembled handheld driver unit in a 3D-printed orange enclosure with acrylic top plate.">
+  <br>
+  <em>The handheld driver unit</em>
+</p>
+
 Research prototype, ~2012–2013. Not a cleared medical device.
 See [`roboimplant/NOTICE.md`](roboimplant/NOTICE.md) for rights and third-party
 attribution.

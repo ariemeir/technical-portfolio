@@ -4,6 +4,15 @@ An orthopedic medical-device prototype: a motorized implant that lengthens a
 spinal distraction rod without surgery, driven by an AVR controller and commanded
 from an Android tablet over Bluetooth.
 
+<p align="center">
+  <img src="docs/images/driver-unit-assembled.jpg" width="720"
+       alt="The assembled handheld driver unit: a 3D-printed orange enclosure with an acrylic top plate, gripped handle, and the lead screw and rod visible through the window.">
+  <br>
+  <em>The handheld driver unit. The clinician holds this against the patient over
+  the implant site; the lead screw visible under the acrylic couples to the
+  implanted rod and turns it.</em>
+</p>
+
 Built ~2012–2013. Author: Arie Meir. Institutional work — see [NOTICE.md](NOTICE.md).
 
 **→ [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant)**
@@ -55,6 +64,29 @@ decide whether it is coupled, and reports every transition to the tablet
 immediately rather than waiting for the next periodic update. If coupling is
 lost mid-procedure, rotation counting stops, so a rod that isn't turning is never
 credited with lengthening it didn't do.
+
+<p align="center">
+  <img src="docs/images/prototype-bench.jpg" width="720"
+       alt="The driver unit opened up on a workbench, showing hand-soldered perfboard with the ATmega microcontroller, wiring, and the motor and lead screw inside a clear acrylic housing.">
+  <br>
+  <em>Earlier bench build with the housing open — hand-soldered perfboard carrying
+  the ATmega and the motor driver, alongside the motor and lead screw.</em>
+</p>
+
+## The clinician console
+
+The Android app is what the clinician actually operates. Four screens carry the
+whole workflow:
+
+| | |
+|:--:|:--:|
+| <img src="docs/images/app-adjustment-screen.png" width="290" alt="Procedure screen showing patient information, dosage entry, a 3D spine render, and a red coupling status indicator."> | <img src="docs/images/app-service-terminal.png" width="290" alt="Service terminal screen with live current and voltage plots, angular velocity, and torque readouts."> |
+| **Procedure screen.** Dosage entry, current elongation, and the coupling indicator — red until motor current crosses 35 mA, which is how the system knows the driver is genuinely engaged with the implant rather than spinning free. | **Service terminal.** The engineering view: current, voltage, angular velocity, and torque derived from the motor constants, plotted live from the `bt*` telemetry stream. |
+| <img src="docs/images/app-calibration.png" width="290" alt="Calibration console with preprogrammed and custom adjustment sequences and live measurement plots."> | <img src="docs/images/app-adjustment-history.png" width="290" alt="Per-patient adjustment history listing dates and lengthening amounts in millimetres."> |
+| **Calibration.** Runs preprogrammed adjustment sequences to characterise actuator-to-implant distance dependence and extension distance, capturing the no-load and loaded currents that set the coupling threshold. | **Adjustment history.** Per-patient log of every adjustment, with date and lengthening in millimetres. All sample data shown is fictitious. |
+
+The 3D spine in the first screenshot was rendered with min3d from the mesh that
+has since been removed for provenance reasons — see [NOTICE.md](NOTICE.md).
 
 ## Repository layout
 

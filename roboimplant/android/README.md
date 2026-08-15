@@ -9,6 +9,13 @@ Eclipse ADT project, package `edu.ucsf.roboimplantconsole`, circa 2012–2013.
 **→ [Browse this directory on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/android)**
 · [`src/`](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/android/src/edu/ucsf)
 
+| | | | |
+|:--:|:--:|:--:|:--:|
+| <img src="../docs/images/app-adjustment-screen.png" width="200" alt="Procedure screen with dosage entry, 3D spine render, and coupling indicator."> | <img src="../docs/images/app-service-terminal.png" width="200" alt="Service terminal with live current and voltage plots."> | <img src="../docs/images/app-calibration.png" width="200" alt="Calibration console with adjustment sequences."> | <img src="../docs/images/app-adjustment-history.png" width="200" alt="Per-patient adjustment history."> |
+| `AdjustmentActivity` | `ServiceTerminal` | `CalibrationActivity` | `AdjustmentListActivity` |
+
+Running on a Nexus 7 under Android 4.x. Sample patient data is fictitious.
+
 | | |
 |---|---|
 | minSdkVersion | 14 (Android 4.0) |
