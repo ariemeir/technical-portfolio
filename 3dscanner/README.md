@@ -18,8 +18,9 @@ Capture reconstructs the mesh; a PyMeshLab pass prepares it for printing and cas
 
 Built 2026. Author: Arie Meir. Personal project — see [NOTICE.md](NOTICE.md).
 
-**→ [Read the engineering log](docs/engineering-log.md)**
-· [Read the ScannerCam technical spec](docs/scannercam_spec.md)
+**→ [Read the one-page case study (PDF)](docs/3dscanner-case-study-arie-meir.pdf)**
+· [Engineering log](docs/engineering-log.md)
+· [ScannerCam technical spec](docs/scannercam_spec.md)
 · [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/3dscanner)
 
 > **Reference only.** A working single-operator rig at late-prototype maturity,
@@ -30,18 +31,26 @@ Built 2026. Author: Arie Meir. Personal project — see [NOTICE.md](NOTICE.md).
 
 ## The problem
 
-Photogrammetry — reconstructing 3D geometry from overlapping photographs — needs
-dozens of images of an object from evenly spaced angles, shot under *identical*
-optical conditions. Commercial turntable scanners exist and cost accordingly. The
-parts to build one do not: a motorized photography turntable is inexpensive, and a
-modern phone has a better sensor than most dedicated scanner cameras.
+An artist wanted **larger versions of a commercially molded clay flower**, and to
+explore deeper forms without changing the diameter. The obstacle was that the
+geometry existed only as a physical object — there was no model to scale, deepen, or
+re-cut. Getting one meant capturing the real surface accurately enough to modify,
+re-fabricate, and eventually use as the basis for new mold tooling.
+
+Photogrammetry — reconstructing 3D geometry from overlapping photographs — is the
+right tool, but it needs dozens of images from evenly spaced angles shot under
+*identical* optical conditions. Commercial turntable scanners exist and cost
+accordingly. The parts to build one do not: a motorized photography turntable is
+inexpensive, and a modern phone has a better sensor than most dedicated scanner
+cameras.
 
 The gap is control. The turntable obeys an infrared remote and has no data port.
 The phone's camera app will happily refocus and re-meter between shots, which
 destroys the reconstruction. Nothing talks to anything else.
 
 This project closes that gap end-to-end: object in, printable mesh out, with every
-frame verified byte-for-byte along the way.
+frame verified byte-for-byte along the way — and the loop is closed, since the
+scanned flower came back as a printed reproduction.
 
 ## How it works
 
@@ -283,6 +292,25 @@ never before the repair pass.
   <em>already watertight</em> solid, because running the repair pass afterwards would
   have dutifully filled every one of them back in.</em>
 </p>
+
+## AI as an engineering harness
+
+This project spans Swift, Python, Arduino C++, an HTTP protocol, photogrammetry, and
+mesh tooling — five domains that would normally each carry their own ramp-up cost.
+**Claude Code was used throughout** as an engineering agent: writing and debugging
+across all of those boundaries, and compressing the integration work that usually
+dominates a project like this.
+
+What it did not do is decide when the thing actually worked. Every claim here was
+settled physically — the IR emitter proved out by a turntable that visibly moved, the
+capture chain by SHA-256 comparisons on real transfers, the reconstruction by meshes
+that either registered or dropped frames, and the whole pipeline by a printed part
+that either matched the original or did not.
+
+The working principle: **use AI to cross domain boundaries quickly, but make physical
+uncertainty explicit and validate every transition** — actuator to image, image to
+mesh, mesh to manufactured part. The `UNKNOWN` turntable state, the five-stage hash
+chain, and the `HEAD`-before-refire check are all that principle applied.
 
 ## State of the code
 

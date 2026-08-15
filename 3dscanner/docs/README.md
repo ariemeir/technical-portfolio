@@ -2,6 +2,7 @@
 
 | Document | What it is |
 |---|---|
+| [`3dscanner-case-study-arie-meir.pdf`](3dscanner-case-study-arie-meir.pdf) | One-page case study — the problem, the pipeline, the engineering principles |
 | [`scannercam_spec.md`](scannercam_spec.md) | The ScannerCam technical specification — 1,731 lines, v0.2 |
 | [`engineering-log.md`](engineering-log.md) | Decisions, bugs with root causes, and measured results |
 

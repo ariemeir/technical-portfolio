@@ -19,11 +19,17 @@ own license and its own copyright holder.
 Every photograph in `docs/images/` is an original photograph of this rig and its
 output, taken by the author. They are covered by the rights reservation above.
 
-The ceramic daisy dish photographed as the scan subject is a commercially bought
-household object, used here only as something to point a camera at. Its design is
-not the author's, and no claim is made to it; the 3D-printed reproduction shown
-alongside it was made from this scanner's own output for the purpose of testing the
-pipeline.
+The ceramic daisy dish photographed as the scan subject is a **commercially molded
+piece whose design is not the author's**, and no claim is made to it. It appears here
+because it is the object the project was built to capture: the aim was to derive an
+editable model so an artist could fabricate larger and deeper variants. The printed
+piece shown beside it is a reproduction made from this scanner's own output, used to
+validate the pipeline end to end.
+
+Nothing derived from that object is offered for use or distribution here. What is
+published is the **scanner** — code, firmware, and documentation — not the scanned
+geometry, which is also why no mesh, STL, or captured image set appears in this
+repository.
 
 ## Redacted before publication
 

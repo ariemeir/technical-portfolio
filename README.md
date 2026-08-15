@@ -40,8 +40,10 @@ attribution.
 
 ### [3D Scanner](3dscanner/) — turntable photogrammetry rig
 
-A DIY tabletop 3D scanner that takes a physical object and produces a printable,
-watertight STL. Five subsystems bound together by explicit contracts:
+A DIY tabletop 3D scanner built to solve a real fabrication problem: an artist needed
+larger and deeper variants of a commercially molded clay flower that existed only as a
+physical object. It takes that object and produces a printable, watertight STL. Five
+subsystems bound together by explicit contracts:
 
 - **iOS** — **ScannerCam**, an iPhone camera server with a hand-rolled HTTP/1.1
   stack on `NWListener`: 13 REST routes, bearer auth with constant-time comparison,
@@ -77,7 +79,8 @@ turntable answers only to a fire-and-forget infrared *toggle*, so the controller
 tracks an explicit assumed state and halts for human realignment on any ambiguity
 rather than guessing and silently desynchronising the scan.
 
-**→ [Read the engineering log](3dscanner/docs/engineering-log.md)**
+**→ [Read the one-page case study (PDF)](3dscanner/docs/3dscanner-case-study-arie-meir.pdf)**
+· [Engineering log](3dscanner/docs/engineering-log.md)
 · [Technical spec](3dscanner/docs/scannercam_spec.md)
 
 Personal project, 2026. Working single-operator rig at late-prototype maturity.
