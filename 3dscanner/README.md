@@ -9,13 +9,11 @@ Capture reconstructs the mesh; a PyMeshLab pass prepares it for printing and cas
   <img src="docs/images/rig-scannercam-turntable.jpg" width="720"
        alt="Close view of the rig: an iPhone running ScannerCam on a tripod mount showing a live preview and three status rows reading LOCKED, facing a white turntable holding a ceramic daisy dish, with an Arduino and its infrared LED aimed at the turntable from the right.">
   <br>
-  <em>The whole capture loop in one frame. The phone runs <strong>ScannerCam</strong>,
-  its three status rows reading <code>LOCKED</code> — focus, exposure, white balance —
-  which the controller can <em>require</em> before it will record a single frame. To the
-  right, the Arduino's infrared LED points at the turntable across open air: that gap is
-  the only connection between them, and it carries no acknowledgement of any kind. The
-  coloured arrows on the disc rotate <em>with</em> the subject, which is what makes them
-  helpful rather than harmful.</em>
+  <em>The whole capture loop in one frame. The phone runs <strong>ScannerCam</strong>
+  with focus, exposure and white balance all reading <code>LOCKED</code> — a state the
+  controller can <em>require</em> before it will record a single frame. At right, the
+  Arduino's IR LED points at the turntable across open air: the only link between them,
+  and a one-way one.</em>
 </p>
 
 Built 2026. Author: Arie Meir. Personal project — see [NOTICE.md](NOTICE.md).
@@ -88,12 +86,11 @@ minutes per loop on an M4.
 
 <p align="center">
   <img src="docs/images/rig-turntable-arduino.jpg" width="470"
-       alt="The motorized turntable raised on a box inside the light tent, with the Arduino board and its USB cable beside it and an empty phone mount in the foreground.">
+       alt="The motorized turntable raised on a box inside the light tent, with the Arduino board beside it and its infrared LED aimed at the turntable.">
   <br>
-  <em>The same rig with the lights off. Note what is <em>not</em> there: no wire runs
-  between the Arduino and the turntable. The only link is a few centimetres of infrared
-  across open air, one-way, unacknowledged — which is the constraint the entire
-  controller design answers to.</em>
+  <em>The Arduino's IR LED, aimed across open air at the turntable — no wire connects
+  them. The exact command codes were learned from the turntable's own remote using
+  <code>capture_remote_signals.ino</code>, then replayed.</em>
 </p>
 
 The two machines carry codenames throughout the code and docs: **`saru`** is the
