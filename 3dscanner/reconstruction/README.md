@@ -1,0 +1,103 @@
+# Reconstruction — photos → 3D model → STL
+
+Turns a captured turntable session (`scans/completed/<id>/images/frame_*.jpg`)
+into a textured mesh and a printable STL, **entirely on the local Mac** — no cloud
+photogrammetry service.
+
+**→ [Browse this directory on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/3dscanner/reconstruction)**
+· [`objcap/main.swift`](https://github.com/ariemeir/technical-portfolio/blob/main/3dscanner/reconstruction/objcap/Sources/objcap/main.swift)
+· [`scripts/repair.py`](https://github.com/ariemeir/technical-portfolio/blob/main/3dscanner/reconstruction/scripts/repair.py)
+
+## Why Apple Object Capture (not COLMAP) on Apple Silicon
+
+COLMAP's dense stereo (`patch_match_stereo`) is **CUDA-only** — it hard-errors
+on Apple Silicon ("Dense stereo reconstruction requires CUDA"). COLMAP would
+give us only a sparse point cloud here. Apple's **Object Capture**
+(`RealityKit.PhotogrammetrySession`) is GPU-accelerated on M-series, purpose-
+built for object/turntable capture, and produces a near-watertight *textured
+mesh* directly. So the mesh stage uses Object Capture. (If you later move to an
+NVIDIA/Linux box, COLMAP + OpenMVS becomes viable for dense work.)
+
+## Pipeline
+
+```
+scans/completed/<id>/images/frame_*.jpg
+        │  reconstruction/scripts/reconstruct.sh <session_dir> [detail]
+        ▼
+output/meshes/<id>.usdz   textured mesh — Quick Look it (spacebar in Finder)
+output/meshes/<id>/       textured OBJ *bundle* — baked_mesh_*.obj + .mtl + textures
+output/meshes/<id>.stl    geometry only — for 3D printing (needs repair, below)
+```
+
+- **Detail levels:** `preview` (fast, rough) · `reduced` · `medium` (default) ·
+  `full` · `raw` (slowest, densest). Start with `reduced` to sanity-check, then
+  `full` for the keeper.
+- **Output formats:** Object Capture writes **USDZ** (single file) and **OBJ**
+  (a *bundle*: `baked_mesh_*.obj` + `.mtl` + texture PNGs). OBJ output **must be a
+  directory** — RealityKit rejects a plain `foo.obj` file path with
+  `invalidOutput`, so `objcap` writes the bundle into `<id>/`. Object Capture
+  does **not** write STL — `reconstruct.sh` converts the bundle's OBJ→STL via
+  `assimp` (STL is geometry only; textures are dropped).
+- **Watertight?** The Poisson-style surface is topologically closed, but a
+  single-ring turntable scan never photographs the object's **underside**, so
+  the base is fabricated — closed, but geometrically crude. For printing, run
+  `scripts/repair.py` (below), which automates the repair pass.
+
+## Print preparation — `scripts/repair.py`
+
+A PyMeshLab tool that turns a reconstruction into a solid a slicer will accept:
+
+```bash
+./reconstruction/scripts/repair.py in.stl out.stl \
+    --normal-to-z --diameter-mm 100 --smooth-base 3.5
+```
+
+| Stage | What it does |
+|---|---|
+| weld + drop strays | Merge duplicate vertices, remove small disconnected components |
+| repair + close holes | Fix non-manifold edges/vertices, fill every open boundary → **watertight** |
+| `--normal-to-z` | PCA-orient the flat face's normal to +Z, with a determinant check so the mesh is never mirrored |
+| `--diameter-mm N` | STL is unitless and slicers read millimetres — scale the widest in-plane extent to *N* mm |
+| `--smooth-base MM` | Taubin-smooth **only** the bottom band, softening the fabricated base while leaving detailed geometry untouched |
+| seat | Centre in XY, sit flat on Z=0 |
+
+### ⚠️ Repair before drilling, never after
+
+Close-holes fills **every** open boundary — including see-through holes you have
+just drilled. Run the repair pass first to get a clean watertight solid, *then*
+drill it (Blender boolean difference, `Manifold` solver on 5.x). A boolean through
+a closed solid yields clean tunnels that preserve watertightness; drilling a messy
+mesh leaves open boundaries, and an exact boolean against self-intersecting
+geometry can collapse the mesh entirely.
+
+## Build the tool (once)
+
+```bash
+cd reconstruction/objcap && swift build -c release
+brew install assimp          # for the OBJ→STL step
+```
+
+`objcap` is a ~90-line Swift CLI (`reconstruction/objcap/`) wrapping
+`PhotogrammetrySession`. Requires macOS 14+ and an Apple Silicon (or AMD) GPU.
+
+## Run
+
+```bash
+./reconstruction/scripts/reconstruct.sh scans/completed/<id> full
+# or drive the CLI directly:
+./reconstruction/objcap/.build/release/objcap <imagesDir> medium out.usdz out.obj
+```
+
+## Capturing a *good* scan (matters more than any setting)
+
+Object Capture needs **viewpoint diversity + overlap** — the dry-run frames
+(same pose, no rotation) correctly fail with `processError`. For a real scan:
+
+- **Object:** matte, opaque, textured, rigid, asymmetric. Avoid shiny, clear,
+  or featureless surfaces.
+- **Coverage:** 36–72 frames around a full turn (10° or 5° steps), each frame
+  overlapping its neighbours by a lot.
+- **Camera:** locked focus/exposure/white-balance (tap **Lock All** in
+  ScannerCam), object filling most of the frame, stationary phone.
+- **Lighting:** bright, even, diffuse; no hard moving shadows.
+- Capture with `capture/controller/scan.py run --name <obj> --degrees 10`.

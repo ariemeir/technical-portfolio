@@ -38,6 +38,45 @@ attribution.
 
 ---
 
+### [3D Scanner](3dscanner/) — turntable photogrammetry rig
+
+A DIY tabletop 3D scanner that takes a physical object and produces a printable,
+watertight STL. Five subsystems bound together by explicit contracts:
+
+- **iOS** — **ScannerCam**, an iPhone camera server with a hand-rolled HTTP/1.1
+  stack on `NWListener`: 13 REST routes, bearer auth with constant-time comparison,
+  Keychain token storage, and hard locks on focus, exposure, and white balance.
+  SwiftUI + AVFoundation, zero third-party packages.
+- **Orchestration** — a Python session controller driving the scan loop across two
+  machines, with idempotent retries, resumable sessions, and a five-stage SHA-256
+  integrity chain from the phone's memory to the final archive.
+- **Embedded** — an Arduino that controls the turntable by *impersonating its
+  infrared remote*, replaying NEC codes reverse-engineered with a majority-vote
+  capture sketch. No data port, no feedback, no encoder.
+- **Reconstruction** — a Swift CLI over Apple Object Capture (RealityKit), chosen
+  after COLMAP was tested and rejected for being CUDA-only on Apple Silicon.
+- **Print prep** — a PyMeshLab pass that makes the mesh watertight, orients it by
+  PCA, and scales it to real millimetres for printing and silicone-mold casting.
+
+```
+object ─→ 72 photos ─→ pose solve ─→ textured mesh ─→ watertight STL ─→ printed master
+          locked        Object          USDZ/OBJ        PyMeshLab         silicone mold
+          optics        Capture                         repair            → cast copies
+```
+
+The engineering centrepiece is control of an actuator that cannot be observed: the
+turntable answers only to a fire-and-forget infrared *toggle*, so the controller
+tracks an explicit assumed state and halts for human realignment on any ambiguity
+rather than guessing and silently desynchronising the scan.
+
+**→ [Read the engineering log](3dscanner/docs/engineering-log.md)**
+· [Technical spec](3dscanner/docs/scannercam_spec.md)
+
+Personal project, 2026. Working single-operator rig at late-prototype maturity.
+See [`3dscanner/NOTICE.md`](3dscanner/NOTICE.md) for rights and attribution.
+
+---
+
 Each project directory carries its own README and rights notice. Unless stated
 otherwise in a project's `NOTICE.md`, this work is published for reference only
 and is not offered under an open-source license.

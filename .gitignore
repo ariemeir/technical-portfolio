@@ -26,3 +26,21 @@ local.properties
 # Editor cruft
 *~
 *.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Swift / Xcode
+.build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# Scanner runtime data and output
+scans/
+output/
+logs/
+config/scanner.yaml
