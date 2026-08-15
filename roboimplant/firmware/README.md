@@ -4,6 +4,8 @@ AVR C firmware for the handheld driver unit. Parses commands from the Android
 console over Bluetooth serial, drives the maxon ESCON servo controller, counts
 rod rotations, and streams telemetry back.
 
+**→ [Browse this directory on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/firmware)**
+
 ## Target
 
 | | |

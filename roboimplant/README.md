@@ -6,6 +6,8 @@ from an Android tablet over Bluetooth.
 
 Built ~2012–2013. Author: Arie Meir. Institutional work — see [NOTICE.md](NOTICE.md).
 
+**→ [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant)**
+
 > **Reference only.** Not a cleared or approved medical device. Not for clinical
 > use. All sample patient data in this repository is fictitious.
 
@@ -125,11 +127,15 @@ straight about what that means:
 
 ## Key sources
 
+Direct links into the code on GitHub:
+
 | File | Why it's worth reading |
 |---|---|
-| `firmware/config.h` | System model — every physical parameter, calibration value, and state struct in one place |
-| `firmware/main.c` | Timer/interrupt setup, procedure state machine, coupling logic |
-| `firmware/messageDispatcher.c` | Command parser, controller side |
-| `firmware/digitalPot.c` | DS1267 SPI driver — how motor speed is actually commanded |
-| `android/src/.../AdjustmentActivity.java` | The procedure screen the clinician drives |
-| `android/src/.../MessageDispatcher.java` | Telemetry parser and listener fan-out |
+| [`firmware/config.h`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/firmware/config.h) | System model — every physical parameter, calibration value, and state struct in one place |
+| [`firmware/main.c`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/firmware/main.c) | Timer/interrupt setup, procedure state machine, coupling logic |
+| [`firmware/messageDispatcher.c`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/firmware/messageDispatcher.c) | Command parser, controller side |
+| [`firmware/digitalPot.c`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/firmware/digitalPot.c) | DS1267 SPI driver — how motor speed is actually commanded |
+| [`firmware/adc.c`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/firmware/adc.c) | Current/voltage sensing — the input to coupling detection |
+| [`AdjustmentActivity.java`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/android/src/edu/ucsf/roboimplantconsole/AdjustmentActivity.java) | The procedure screen the clinician drives |
+| [`MessageDispatcher.java`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/android/src/edu/ucsf/roboimplantconsole/MessageDispatcher.java) | Telemetry parser and listener fan-out |
+| [`BluetoothSerialService.java`](https://github.com/ariemeir/technical-portfolio/blob/main/roboimplant/android/src/edu/ucsf/roboimplantconsole/bluetooth/BluetoothSerialService.java) | Bluetooth SPP connection state machine |

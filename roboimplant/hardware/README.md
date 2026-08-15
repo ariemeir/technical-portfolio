@@ -1,5 +1,9 @@
 # Hardware
 
+**→ [Browse this directory on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/hardware)**
+· [`pcb/`](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/hardware/pcb)
+· [`enclosure/`](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/hardware/enclosure)
+
 ## `pcb/` — controller board
 
 EAGLE 6.1 (CadSoft) design files for the board carrying the ATmega1284P, the

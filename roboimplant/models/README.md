@@ -2,6 +2,8 @@
 
 Geometry used by the Android console's 3D visualization (rendered with min3d).
 
+**→ [Browse this directory on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/roboimplant/models)**
+
 | File | |
 |---|---|
 | `spine/Metal Rod.skp` | SketchUp source model of the distraction rod |

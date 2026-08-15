@@ -2,6 +2,8 @@
 
 Representative projects, published for reference.
 
+**→ [Browse all source on GitHub](https://github.com/ariemeir/technical-portfolio)**
+
 ## Projects
 
 ### [RoboImplant](roboimplant/) — non-invasive spinal implant adjustment system
