@@ -134,8 +134,8 @@ sequence numbers: every notify is simply compared against the state the server
 already intends, which collapses the whole problem into three branches and makes
 recovery after a reboot or a reflash automatic.
 
-**→ [Read the case study](wifesignal/)**
-· [Server](wifesignal/server/) · [iOS app](wifesignal/app/)
+**→ [Read the one-page case study (PDF)](wifesignal/docs/wifesignal-case-study-arie-meir.pdf)**
+· [Full case study](wifesignal/) · [Server](wifesignal/server/) · [iOS app](wifesignal/app/)
 · [Firmware](wifesignal/firmware/) · [Hardware](wifesignal/device/)
 
 Personal project, 2026. In daily use.

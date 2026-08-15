@@ -2,9 +2,10 @@
 
 | Path | Contents |
 |---|---|
+| [`wifesignal-case-study-arie-meir.pdf`](wifesignal-case-study-arie-meir.pdf) | One-page case study — the project at a glance. |
 | [`images/`](images/) | Original photographs of the device and its construction, plus one screenshot of the project's own iOS app. |
 
-The case study itself is the [project README](../README.md).
+The full case study is the [project README](../README.md).
 
 ## Images
 

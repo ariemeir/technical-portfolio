@@ -19,8 +19,9 @@ acknowledges the message, and the sender's phone shows **Seen ♥**.
 
 Built 2026. Author: Arie Meir. Personal project — see [NOTICE.md](NOTICE.md).
 
-**→ [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/wifesignal)**
+**→ [Read the one-page case study (PDF)](docs/wifesignal-case-study-arie-meir.pdf)**
 · [Server](server/) · [iOS app](app/) · [Firmware](firmware/) · [Hardware](device/)
+· [Browse the source on GitHub](https://github.com/ariemeir/technical-portfolio/tree/main/wifesignal)
 
 > **Reference only.** A working system in daily use, published so the engineering
 > can be read. Deployment specifics (signing team, App Store Connect key IDs,
