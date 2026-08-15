@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+._*
+
+# Eclipse / Android ADT build output
+bin/
+gen/
+local.properties
+.svn/
+
+# AVR / GCC build output
+*.o
+*.d
+*.lst
+*.elf
+*.hex
+*.eep
+*.lss
+*.sym
+*.map
+*.cof
+
+# SketchUp backups
+*.skb
+
+# Editor cruft
+*~
+*.swp

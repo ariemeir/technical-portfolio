@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/outentry_rel_layout"
+android:layout_width="fill_parent"
+android:layout_height="80dip"
+android:background="#251025"
+android:layout_centerVertical="true"
+android:gravity="center_vertical"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+	<TextView
+	android:id="@+id/adjustment_date"
+	android:layout_width="200dip"
+	android:layout_height="wrap_content"
+	android:background="#251025"
+	android:textColor="#ffffff"
+	android:textSize="20sp"
+	android:padding="10px"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true"
+	android:gravity="center_vertical"
+	>
+	</TextView>
+	<TextView
+	android:id="@+id/adjustment_amount"
+	android:layout_width="200dip"
+	android:layout_height="wrap_content"
+	android:background="#251025"
+	android:textColor="#ffffff"
+	android:textSize="20sp"
+	android:padding="10px"
+	android:layout_centerVertical="true"
+	android:gravity="center_vertical"
+	/>
+</LinearLayout>

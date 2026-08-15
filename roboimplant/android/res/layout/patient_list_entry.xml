@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/outentry_rel_layout"
+android:layout_width="fill_parent"
+android:layout_height="40dip"
+android:background="#251025"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+	<TextView
+	android:id="@+id/patient_id"
+	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:padding="10px"
+    android:background="#251025"
+    android:textColor="#ffff00"
+	android:textSize="20sp"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true"
+	>
+	</TextView>
+	<TextView
+	android:id="@+id/patient_name"
+	android:layout_width="200dip"
+	android:layout_height="wrap_content"
+	android:padding="10px"
+    android:background="#251025"
+    android:textColor="#ffff00"
+	android:textSize="20sp"
+	android:layout_alignParentTop="true"
+	>
+	</TextView>
+	<TextView
+	android:id="@+id/implant_date"
+	android:layout_width="100dip"
+	android:layout_height="wrap_content"
+	android:text=" "
+	android:padding="10px"
+    android:background="#251025"
+    android:textColor="#ffff00"
+	android:textSize="20sp"
+	android:layout_alignParentTop="true"
+	>
+	</TextView>
+
+ -->
+</LinearLayout>

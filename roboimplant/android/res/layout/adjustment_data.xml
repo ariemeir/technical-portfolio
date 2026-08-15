@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	android:id="@+id/scrollview"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_weight="1"
+	>
+
+<TableLayout
+android:id="@+id/widget73"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+>
+<TextView
+android:id="@+id/widget68"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Technician Name"
+>
+</TextView>
+
+<Spinner
+ android:id="@+id/labor_technician"
+ android:layout_width="fill_parent"
+ android:layout_height="wrap_content"
+ android:textSize="18sp"
+ android:drawSelectorOnTop="false"/>
+<!-- 
+<EditText
+android:id="@+id/labor_technician"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text=""
+android:textSize="18sp"
+/>-->
+
+<TextView
+android:id="@+id/widget68"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Rate"
+>
+</TextView>
+<EditText
+android:id="@+id/labor_rate"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text=""
+android:textSize="18sp"
+/>
+
+</TableLayout>
+
+</ScrollView>

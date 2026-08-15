@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	android:id="@+id/scrollview"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="#000000"
+	android:textColor="#ffffff"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_weight="1"
+	>
+
+<TableLayout
+android:id="@+id/widget73"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+>
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:background="#251025" >
+
+		<TextView
+		android:id="@+id/widget68"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffffff"
+		android:textSize="20sp"
+		android:text="Patient ID"
+		/>
+
+   </TableRow>
+   
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:paddingLeft="30dip"
+       android:background="#251025" >
+   
+	<EditText
+	android:id="@+id/patient_id"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:background="#251025"
+	android:textColor="#ffff00"
+	android:text=""
+	android:textSize="20sp"
+	/>
+	</TableRow>
+
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="2dp"
+       android:background="#251025" >
+   
+		<TextView
+		android:id="@+id/name_label"
+		android:layout_width="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffffff"
+		android:layout_height="wrap_content"
+		android:textSize="20sp"
+		android:text="Name"
+		/>
+	</TableRow>
+
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+	   android:paddingLeft="30dip"
+       android:background="#251025" >
+   
+	<EditText
+	android:id="@+id/patient_name"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:background="#251025"
+	android:textColor="#ffff00"
+	android:text=""
+	android:textSize="20sp"
+	/>
+	</TableRow>
+
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+	   android:layout_marginTop="2dp"
+       android:layout_height="wrap_content"
+       android:background="#251025" >
+   
+	<TextView
+	android:id="@+id/implant_date_label"
+	android:layout_width="wrap_content"
+	android:background="#251025"
+	android:textColor="#ffffff"
+	android:layout_height="wrap_content"
+	android:textSize="20sp"
+	android:text="Implant Date"
+	/>
+	</TableRow>
+
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:paddingLeft="30dip"
+       android:background="#251025" >
+   
+		<EditText
+		android:id="@+id/implant_date"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffff00"
+		android:text=""
+		android:textSize="20sp"
+		/>
+	</TableRow>
+   
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+	   android:layout_marginTop="2dp"
+       android:layout_height="wrap_content"
+       android:background="#251025" >
+   
+		<TextView
+		android:id="@+id/birth_date_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffffff"
+		android:textSize="20sp"
+		android:text="Birth Date"
+		/>
+	</TableRow>
+   
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:paddingLeft="30dip"
+       android:background="#251025" >
+   
+		<EditText
+		android:id="@+id/birthdate"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffff00"
+		android:text=""
+		android:textSize="20sp"
+		/>
+	</TableRow>
+
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+	   android:layout_marginTop="2dp"
+       android:layout_height="wrap_content"
+       android:background="#251025" >
+   
+		<TextView
+		android:id="@+id/address_label"
+		android:layout_width="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffffff"
+		android:layout_height="wrap_content"
+		android:textSize="20sp"
+		android:text="Address"
+		/>
+	</TableRow>
+
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:paddingLeft="30dip"
+       android:background="#251025" >
+   
+		<EditText
+		android:id="@+id/address"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text=""
+		android:background="#251025"
+		android:textColor="#ffff00"
+		android:textSize="20sp"
+		/>
+	</TableRow>
+   
+   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+	   android:layout_marginTop="2dp"
+       android:layout_height="wrap_content"
+       android:background="#251025" >
+   
+		<TextView
+		android:id="@+id/phone_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="#251025"
+		android:textColor="#ffffff"
+		android:textSize="20sp"
+		android:text="Phone"
+		>
+	</TextView>
+	</TableRow>
+	   <TableRow
+       android:id="@+id/TableRow01"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+	   android:paddingLeft="30dip"
+       android:background="#251025" >
+   
+		<EditText
+		android:id="@+id/phone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text=""
+		android:background="#251025"
+		android:textColor="#ffff00"
+		android:textSize="20sp"
+		/>
+	</TableRow>
+</TableLayout>
+
+</ScrollView>

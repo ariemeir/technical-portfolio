@@ -1,0 +1,74 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.ucsf.roboimplantconsole"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/spine_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".AdjustmentActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_robo_implant" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="edu.ucsf.roboimplantconsole.bluetooth.DeviceListActivity"
+                  android:label="@string/select_device"
+                  android:theme="@android:style/Theme.Dialog"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".RoboImplantPreferences"
+                  android:label="RoboImpant Preferences"
+                  android:theme="@android:style/Theme.Dialog"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".ServiceTerminal"
+                  android:label="Service Terminal"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".CalibrationActivity"
+                  android:label="Calibration Utility"
+                  android:windowSoftInputMode="stateHidden"
+                  android:configChanges="orientation|keyboardHidden" />
+        
+        <activity 	android:name="edu.ucsf.roboimplant.menu.PatientTabsGroup" 
+        			android:label="Patient Dashboard"
+        			android:configChanges="keyboardHidden|orientation"/>
+        <activity 	android:name="edu.ucsf.roboimplant.menu.PatientListActivity" 	
+        			android:label="Patient List"
+        			android:configChanges="keyboardHidden|orientation"/>
+        <activity 	android:name="edu.ucsf.roboimplant.menu.AdjustmentListActivity" 
+        			android:label="Adjustment List"
+        			android:configChanges="keyboardHidden|orientation"/>
+        <activity 	android:name="edu.ucsf.roboimplant.ui.PatientScreen" 
+        			android:label="Patient Info"
+        			android:configChanges="keyboardHidden|orientation"/>
+        <activity 	android:name="edu.ucsf.roboimplant.ui.AdjustmentScreen" 
+        			android:label="Adjustment Details"
+        			android:configChanges="keyboardHidden|orientation"/>
+        <activity 	android:name="edu.ucsf.roboimplant.ui.PatientSummary" 
+        			android:label="Patient Summary"
+        			android:configChanges="keyboardHidden|orientation"/>
+        <activity 	android:name="edu.ucsf.roboimplant.calib.ExtensionDistanceCalibration" 
+        			android:label="Extension Distance Calibration"
+        			android:configChanges="keyboardHidden|orientation"/>
+        
+        
+        </application>
+    	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    	<uses-permission android:name="android.permission.BLUETOOTH" />    
+    	<uses-permission android:name="android.permission.VIBRATE"/>
+    	<uses-permission xmlns:android="http://schemas.android.com/apk/res/android" android:name="android.permission.READ_PHONE_STATE"/>
+  		<uses-permission xmlns:android="http://schemas.android.com/apk/res/android" android:name="android.permission.INTERNET"/>
+  		<uses-permission xmlns:android="http://schemas.android.com/apk/res/android" android:name="android.permission.ACCESS_SURFACE_FLINGER"/>
+  		<uses-permission xmlns:android="http://schemas.android.com/apk/res/android" android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  		<uses-permission xmlns:android="http://schemas.android.com/apk/res/android" android:name="android.permission.VIBRATE"/>
+  		<uses-permission xmlns:android="http://schemas.android.com/apk/res/android" android:name="android.permission.ACCESS_BACKGROUND_SERVICE" /> 
+    	
+ </manifest>

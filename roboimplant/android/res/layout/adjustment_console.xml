@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listActivity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/splashTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:text="RoboImplant Length Adjustment "
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/widget276"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/widget277"
+            android:layout_width="100sp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#ff888888" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000" >
+
+                <LinearLayout
+                    android:id="@+id/patient_info_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#704000"
+                        android:gravity="center_horizontal"
+                        android:text="Patient Information"
+                        android:textColor="#ffffff"
+                        android:textSize="22sp" />
+
+                    <TableLayout
+                        android:id="@+id/tableLayout1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp" >
+
+                        <TableRow
+                            android:id="@+id/TableRow01"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#251025" >
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:text="Name:"
+                                android:textColor="#ffffff"
+                                android:textSize="20sp"
+                                android:width="60dip" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/patient_name_row"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="2dp" 
+                            android:background="#251025"
+                            android:paddingLeft="30dip" >
+
+                            <TextView
+                                android:id="@+id/patient_name"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:text="John Doe"
+                                android:textColor="#ffff00"
+                                android:textSize="20sp" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/surgery_date_row"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp" 
+                            android:background="#251025" >
+
+                            <TextView
+                                android:id="@+id/surgery_date_label"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:text="Implant Since:"
+                                android:textColor="#ffffff"
+                                android:textSize="20sp" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/surgery_date_row"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="2dp" 
+                            android:background="#251025"
+                            android:paddingLeft="30dip" >
+
+                            <TextView
+                                android:id="@+id/surgery_date"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:text="Aug. 21st, 2012"
+                                android:textColor="#ffff00"
+                                android:textSize="20sp" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/current_elongation_row"
+                            android:layout_width="fill_parent"
+                            android:layout_marginTop="2dp" 
+                            android:layout_height="wrap_content"
+                            android:background="#251025" >
+
+                            <TextView
+                                android:id="@+id/current_elongation_label"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:text="Distraction since surgery:"
+                                android:textColor="#ffffff"
+                                android:textSize="20sp" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/elongation_row"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="2dp" 
+                            android:background="#251025"
+                            android:paddingLeft="30dip" >
+
+                            <TextView
+                                android:id="@+id/elongation_value"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:text="1.37[mm]"
+                                android:textColor="#ffff00"
+                                android:textSize="20sp" />
+
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/patient_info_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="#704000"
+                    android:gravity="center_horizontal"
+                    android:text="Adjustment Options"
+                    android:textColor="#ffffff" 
+                    android:textSize="22sp"/>
+
+                <Switch
+                    android:id="@+id/switch_operation_mode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_below="@+id/textView1"
+                    android:layout_centerHorizontal="true"
+                    android:background="#251025"
+                    android:gravity="center"
+                    android:minHeight="50dip"
+                    android:textColor="#ffff00"
+                    android:textOff="Fixed Dosage"
+                    android:textOn="Oscillation Mode"
+                    android:textSize="26sp" 
+                    android:enabled="false"/>
+                
+                <RelativeLayout
+                    android:id="@+id/dosage_control_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_below="@+id/switch_operation_mode"
+                    android:layout_centerHorizontal="true"
+                    android:background="#251025"
+                    android:layout_marginTop="2dp" >
+                
+                    <TextView
+                        android:id="@+id/dosage_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="left"
+                        android:text="Dosage [mm]"
+                        android:textColor="#ffff00"
+                        android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/dosage_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:editable="false"
+                            android:gravity="right"
+                            android:text="1.0"
+                            android:textColor="#ffff00"
+                            android:textSize="22sp" />
+
+					</RelativeLayout>                    
+
+                <RelativeLayout
+                    android:id="@+id/amplitude_control_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_below="@+id/dosage_control_container"
+                    android:layout_centerHorizontal="true"
+                    android:background="#251025"
+                    android:layout_marginTop="2dp" >
+                
+                    <TextView
+                        android:id="@+id/amplitude_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="left"
+                        android:text="Amplitude [um]"
+                        android:textColor="#A9A9A9"
+                        android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/amplitude_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:editable="false"
+                            android:gravity="right"
+                            android:text="20"
+                            android:textColor="#A9A9A9"
+                            android:textSize="22sp" />
+
+					</RelativeLayout>                    
+                
+                <RelativeLayout
+                    android:id="@+id/frequency_control_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_below="@+id/amplitude_control_container"
+                    android:layout_centerHorizontal="true"
+                    android:background="#251025"
+                    android:layout_marginTop="2dp" >
+                
+                    <TextView
+                        android:id="@+id/frequency_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="left"
+                        android:text="Frequency [Hz]"
+                        android:textColor="#A9A9A9"
+                        android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/frequency_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:editable="false"
+                            android:gravity="right"
+                            android:text="0.1"
+                            android:textColor="#A9A9A9"
+                            android:textSize="22sp" />
+
+					</RelativeLayout>                                    
+                	
+                	<LinearLayout
+                	    android:id="@+id/adjust_button_layout"
+                	    android:layout_width="fill_parent"
+                	    android:layout_height="wrap_content"
+                	    android:layout_below="@id/frequency_control_container"
+                	    android:background="#251025"
+                	    android:gravity="center" >
+                
+                	<Button android:id="@+id/adjust_button"
+						 android:background="#251025"
+						 android:layout_width="wrap_content"
+	 					 android:layout_height="wrap_content"
+	 					 android:drawableTop="@drawable/adjust"
+	 					 android:gravity="center"
+	 					 android:textColor="#ffffff"
+						 android:text="Adjust" />
+                    </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/adjust_button_layout"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/adjustment_progress_textview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#704000"
+                        android:gravity="center_horizontal"
+                        android:text="Adjustment Progress"
+                        android:textColor="#ffffff"
+                        android:textSize="22sp" />
+
+                    <TableLayout
+                        android:id="@+id/TableLayout01"
+                        android:layout_width="340dip"
+                        android:layout_height="60dip"
+                        android:layout_marginTop="2dp" >
+
+                        <TableRow
+                            android:id="@+id/TableRow03"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="2dp"
+                            android:background="#251025"
+                            android:paddingLeft="30dip" >
+
+						<ProgressBar 
+						    	android:id="@+id/ProgressBar01"
+            					android:layout_width="240dip" 
+            					style="?android:attr/progressBarStyleHorizontal"
+            					android:max="100"
+            					android:minHeight="30dip" 
+            					android:maxHeight="30dip"
+            					android:gravity="center"
+            					android:progress="0"
+            					android:layout_height="30dip">
+						    
+						</ProgressBar>                        
+            			</TableRow>
+                    </TableLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        
+        <RelativeLayout
+            android:id="@+id/rightPart"
+            android:layout_width="100sp"
+            android:background="#251025"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/scene1Holder"
+            android:layout_width="fill_parent"
+            android:layout_height="400sp"
+            android:layout_weight="1" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gapspace"
+            android:layout_below="@+id/scene1Holder"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#000000"
+            android:minHeight="2dp"
+            android:layout_weight="1" >
+        </LinearLayout>  
+        
+        <LinearLayout
+            android:id="@+id/statusIndicators"
+            android:layout_width="100sp"
+            android:layout_marginTop="4dp" 
+            android:layout_below="@+id/gapspace"
+            android:layout_height="100dip" >
+            
+           <TextView
+               android:id="@+id/couplingstatustext"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentLeft="true"
+               android:gravity="left"
+               android:text="Coupling status"
+               android:paddingLeft="20sp"
+               android:paddingTop="30sp"
+               android:textColor="#A9A9A9"
+               android:textSize="20sp" />
+   		</LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/statusIndicators2"
+            android:layout_marginTop="4dp" 
+            android:layout_width="320sp"
+            android:layout_below="@+id/gapspace"
+            android:paddingLeft="150sp"
+            android:layout_toRightOf="@+id/couplingstatustext"
+            android:layout_height="100dip" >
+        
+            <ImageButton
+            android:id="@+id/couplingindicator"
+            android:layout_width="100dip"
+            android:layout_height="fill_parent"
+            android:clickable="false"
+            android:background="@drawable/rediconbig"
+            android:text="Status"
+            android:textSize="50sp" />
+	    </LinearLayout>
+	    
+		<LinearLayout 
+		    android:id="@+id/torquechart" 
+		    android:layout_below="@+id/statusIndicators2"
+		    android:orientation="horizontal"
+        	android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:background="#000000" 
+			android:layout_weight="1" />
+        
+	    </RelativeLayout>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/widget281"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.0" >
+
+        <Button
+            android:id="@+id/layoutOkay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OK"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/layoutCancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

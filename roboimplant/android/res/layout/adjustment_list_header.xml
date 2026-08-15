@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/header_rel_layout"
+android:layout_width="fill_parent"
+android:layout_height="40dip"
+android:background="#704000"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+	<TextView
+	android:id="@+id/adjustment_date_label"
+	android:layout_width="200dip"
+	android:layout_height="wrap_content"
+	android:padding="5px"
+	android:background="#704000"
+	android:textColor="#ffffff"
+	android:textSize="20sp"
+	android:text="Adjustment Date"
+	android:textStyle="bold"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true"
+	>
+	</TextView>
+	<TextView
+	android:id="@+id/length_label"
+	android:layout_width="200dip"
+	android:layout_height="wrap_content"
+	android:background="#704000"
+	android:textColor="#ffffff"
+	android:textSize="20sp"
+	android:padding="0px" 
+	android:text="Amount [mm]"
+	android:layout_alignParentTop="true"
+	android:layout_toRightOf="@+id/adjustment_date_label"
+	>
+	</TextView>
+
+</LinearLayout>

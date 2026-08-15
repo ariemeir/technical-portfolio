@@ -1,0 +1,4 @@
+# to see the contents of the sdcard - use dd. Example follows
+sudo dd if=/dev/sdg of=./sdcardcontents count=1 
+
+cat sdcardcontents |hd
