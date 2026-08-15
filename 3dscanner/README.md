@@ -6,16 +6,16 @@ an Arduino drives the turntable by impersonating its infrared remote; Apple Obje
 Capture reconstructs the mesh; a PyMeshLab pass prepares it for printing and casting.
 
 <p align="center">
-  <img src="docs/images/rig-light-tent.jpg" width="470"
-       alt="The scanner rig inside a lit photo light tent: an iPhone on a tripod mount facing a white motorized turntable holding a ceramic daisy dish, with an Arduino board wired by USB beside the turntable.">
+  <img src="docs/images/rig-scannercam-turntable.jpg" width="720"
+       alt="Close view of the rig: an iPhone running ScannerCam on a tripod mount showing a live preview and three status rows reading LOCKED, facing a white turntable holding a ceramic daisy dish, with an Arduino and its infrared LED aimed at the turntable from the right.">
   <br>
-  <em>The complete rig. The light tent does two jobs — flat diffuse light, and a
-  <strong>plain matte backdrop</strong>. A feature-rich static background is the single
-  most reliable way to break a turntable scan: the object rotates, the background does
-  not, and the solver cannot reconcile two rigid scenes moving relative to each other.
-  The phone at left is running ScannerCam with focus, exposure and white balance all
-  reading <code>LOCKED</code>; the Arduino beside the turntable fires the infrared
-  toggle that steps it.</em>
+  <em>The whole capture loop in one frame. The phone runs <strong>ScannerCam</strong>,
+  its three status rows reading <code>LOCKED</code> — focus, exposure, white balance —
+  which the controller can <em>require</em> before it will record a single frame. To the
+  right, the Arduino's infrared LED points at the turntable across open air: that gap is
+  the only connection between them, and it carries no acknowledgement of any kind. The
+  coloured arrows on the disc rotate <em>with</em> the subject, which is what makes them
+  helpful rather than harmful.</em>
 </p>
 
 Built 2026. Author: Arie Meir. Personal project — see [NOTICE.md](NOTICE.md).
@@ -153,6 +153,20 @@ lets the controller *require* them: a capture request with `require_locks: true`
 is rejected with `409 camera_not_locked` unless all three are engaged. The camera
 is also pinned to a single physical lens — no virtual/dual device, so iOS cannot
 silently switch lenses and change the intrinsics mid-scan.
+
+Locking the camera only fixes half of it; the scene has to hold still optically too.
+
+<p align="center">
+  <img src="docs/images/rig-light-tent.jpg" width="440"
+       alt="The full rig inside a photo light tent with its LED panel lit, showing diffuse light falling on the turntable and a plain grey backdrop behind it.">
+  <br>
+  <em>Why the light tent earns its place. It supplies flat, diffuse light with no hard
+  moving shadows — and, less obviously, a <strong>plain matte backdrop</strong>. A
+  feature-rich static background is the most reliable way to ruin a turntable scan: the
+  object rotates, the background does not, and the solver cannot reconcile two rigid
+  scenes moving relative to one another. The first attempt failed for exactly this
+  reason, against a cluttered desk with a monitor showing text.</em>
+</p>
 
 ## Integrity across three machines
 

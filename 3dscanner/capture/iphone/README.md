@@ -21,15 +21,16 @@ balance, and allows pinning to one physical lens — which is what makes 72 fram
 shot over several minutes photometrically consistent enough to reconstruct.
 
 <p align="center">
-  <img src="../../docs/images/rig-light-tent.jpg" width="430"
-       alt="An iPhone on a tripod mount inside a lit light tent, running ScannerCam and facing a motorized turntable that holds a ceramic daisy dish.">
+  <img src="../../docs/images/rig-scannercam-turntable.jpg" width="720"
+       alt="An iPhone running ScannerCam on a tripod mount, showing a live camera preview of the flower and three status rows reading LOCKED, with Lock All and Unlock All buttons beneath.">
   <br>
-  <em>ScannerCam in service, mounted facing the turntable. The three status rows on
-  screen read <code>LOCKED</code> — focus, exposure, white balance. That state is not
-  advisory: a capture request carrying <code>require_locks: true</code> is rejected with
-  <code>409 camera_not_locked</code> unless all three are engaged, so the controller can
-  refuse to record an inconsistent scan rather than discover it an hour later at
-  reconstruction time. The locks reset when the app is backgrounded, so they are
+  <em>ScannerCam in service. Visible on screen: the live preview, the reported capture
+  dimensions, and the three status rows — focus, exposure, white balance — all reading
+  <code>LOCKED</code>, plus the Lock All / Unlock All controls. That state is not
+  advisory. A capture request carrying <code>require_locks: true</code> is rejected with
+  <code>409 camera_not_locked</code> unless all three are engaged, so the controller
+  refuses to record an inconsistent scan rather than discovering it an hour later at
+  reconstruction time. The locks reset when the app is backgrounded, so they get
   re-armed at the start of every session.</em>
 </p>
 
