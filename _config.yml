@@ -1,0 +1,8 @@
+title: Technical Portfolio — Arie Meir
+description: Representative engineering projects — embedded systems, mobile, electronics, mechanical design
+theme: jekyll-theme-primer
+
+# Keep build output lean; source stays browsable on GitHub itself.
+exclude:
+  - .gitignore
+  - README-source.md

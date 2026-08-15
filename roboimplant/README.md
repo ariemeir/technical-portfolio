@@ -60,8 +60,7 @@ credited with lengthening it didn't do.
 |---|---|
 | [`firmware/`](firmware/) | AVR C firmware for the ATmega1284P controller |
 | [`android/`](android/) | Eclipse ADT project — the clinician console app |
-| [`hardware/pcb/`](hardware/pcb/) | EAGLE 6.1 schematic and board layout |
-| [`hardware/enclosure/`](hardware/enclosure/) | SolidWorks parts and assembly for the handheld driver |
+| [`hardware/`](hardware/) | EAGLE 6.1 schematic and board layout (`pcb/`), plus SolidWorks parts and assembly for the handheld driver (`enclosure/`) |
 | [`models/`](models/) | 3D rod models used by the app's visualization |
 | [`docs/motor/`](docs/motor/) | maxon ESCON 36/2 servo-controller reference (vendor docs) |
 
