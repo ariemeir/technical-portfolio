@@ -8,6 +8,17 @@ nothing here is wired into the turntable electrically.
 
 ## Hardware
 
+<p align="center">
+  <img src="../../docs/images/arduino-ir-emitter.jpg" width="420"
+       alt="An Arduino Uno with a clear infrared LED wired through a series resistor into the digital header, connected by a blue USB cable.">
+  <br>
+  <em>The emitter, mid bring-up — an IR LED on a series resistor off the digital
+  header. Because the LED emits outside the visible band it looks identical working or
+  dead, which is what <code>ir_dc_test.ino</code> is for: it holds the pin high in a
+  3 s / 1 s pattern so the emitter reads as a steady violet glow through a phone
+  camera and a multimeter has a stable window to probe.</em>
+</p>
+
 | | |
 |---|---|
 | Board | Arduino Uno, USB serial @ 115200 |

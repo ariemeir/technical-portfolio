@@ -58,6 +58,14 @@ watertight STL. Five subsystems bound together by explicit contracts:
 - **Print prep** — a PyMeshLab pass that makes the mesh watertight, orients it by
   PCA, and scales it to real millimetres for printing and silicone-mold casting.
 
+<p align="center">
+  <img src="3dscanner/docs/images/original-and-print.jpg" width="620"
+       alt="A white ceramic daisy dish beside a dark grey 3D-printed copy of the same flower, both with ridged petals and a ring of holes through the centre.">
+  <br>
+  <em>Input and output: the original ceramic dish, and a printed reproduction
+  scanned from it.</em>
+</p>
+
 ```
 object ─→ 72 photos ─→ pose solve ─→ textured mesh ─→ watertight STL ─→ printed master
           locked        Object          USDZ/OBJ        PyMeshLab         silicone mold

@@ -14,6 +14,17 @@ This reservation applies to the **original work only**. It does not and cannot
 extend to the third-party components listed below, each of which remains under its
 own license and its own copyright holder.
 
+## Images
+
+Every photograph in `docs/images/` is an original photograph of this rig and its
+output, taken by the author. They are covered by the rights reservation above.
+
+The ceramic daisy dish photographed as the scan subject is a commercially bought
+household object, used here only as something to point a camera at. Its design is
+not the author's, and no claim is made to it; the 3D-printed reproduction shown
+alongside it was made from this scanner's own output for the purpose of testing the
+pipeline.
+
 ## Redacted before publication
 
 This project was developed against specific physical hardware on a private network.

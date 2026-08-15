@@ -20,6 +20,19 @@ photogrammetry, AVFoundation exposes hard **locks** on focus, exposure, and whit
 balance, and allows pinning to one physical lens — which is what makes 72 frames
 shot over several minutes photometrically consistent enough to reconstruct.
 
+<p align="center">
+  <img src="../../docs/images/rig-light-tent.jpg" width="430"
+       alt="An iPhone on a tripod mount inside a lit light tent, running ScannerCam and facing a motorized turntable that holds a ceramic daisy dish.">
+  <br>
+  <em>ScannerCam in service, mounted facing the turntable. The three status rows on
+  screen read <code>LOCKED</code> — focus, exposure, white balance. That state is not
+  advisory: a capture request carrying <code>require_locks: true</code> is rejected with
+  <code>409 camera_not_locked</code> unless all three are engaged, so the controller can
+  refuse to record an inconsistent scan rather than discover it an hour later at
+  reconstruction time. The locks reset when the app is backgrounded, so they are
+  re-armed at the start of every session.</em>
+</p>
+
 ## Layout
 
 | Path | Lines | Contents |

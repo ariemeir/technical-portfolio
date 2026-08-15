@@ -5,6 +5,19 @@ STL. An iPhone runs a from-scratch HTTP camera server; a Mac orchestrates the sc
 an Arduino drives the turntable by impersonating its infrared remote; Apple Object
 Capture reconstructs the mesh; a PyMeshLab pass prepares it for printing and casting.
 
+<p align="center">
+  <img src="docs/images/rig-light-tent.jpg" width="470"
+       alt="The scanner rig inside a lit photo light tent: an iPhone on a tripod mount facing a white motorized turntable holding a ceramic daisy dish, with an Arduino board wired by USB beside the turntable.">
+  <br>
+  <em>The complete rig. The light tent does two jobs — flat diffuse light, and a
+  <strong>plain matte backdrop</strong>. A feature-rich static background is the single
+  most reliable way to break a turntable scan: the object rotates, the background does
+  not, and the solver cannot reconcile two rigid scenes moving relative to each other.
+  The phone at left is running ScannerCam with focus, exposure and white balance all
+  reading <code>LOCKED</code>; the Arduino beside the turntable fires the infrared
+  toggle that steps it.</em>
+</p>
+
 Built 2026. Author: Arie Meir. Personal project — see [NOTICE.md](NOTICE.md).
 
 **→ [Read the engineering log](docs/engineering-log.md)**
@@ -73,12 +86,36 @@ vibration to settle, trigger the shutter over HTTP, download the JPEG, verify it
 SHA-256, then move again. A 72-frame run plus reconstruction takes roughly five
 minutes per loop on an M4.
 
+<p align="center">
+  <img src="docs/images/rig-turntable-arduino.jpg" width="470"
+       alt="The motorized turntable raised on a box inside the light tent, with the Arduino board and its USB cable beside it and an empty phone mount in the foreground.">
+  <br>
+  <em>The same rig with the lights off. Note what is <em>not</em> there: no wire runs
+  between the Arduino and the turntable. The only link is a few centimetres of infrared
+  across open air, one-way, unacknowledged — which is the constraint the entire
+  controller design answers to.</em>
+</p>
+
 The two machines carry codenames throughout the code and docs: **`saru`** is the
 iPhone, **`shika`** is the Mac.
 
 ## Driving an actuator you cannot observe
 
 This is the interesting control problem, and it shaped the whole controller.
+
+<p align="center">
+  <img src="docs/images/arduino-ir-emitter.jpg" width="430"
+       alt="Close-up of an Arduino Uno with a clear infrared LED wired through a series resistor to the digital header, connected to a computer by a blue USB cable.">
+  <br>
+  <em>The entire electrical interface to the turntable: one infrared LED on a series
+  resistor, run off the Uno's digital header. <strong>Nothing connects to the turntable
+  at all</strong> — it has no data port, so the Arduino simply impersonates its remote.
+  The LED emits outside the visible band, so it looks equally dead whether or not it is
+  working, which is exactly why <code>ir_dc_test.ino</code> exists: hold the pin high
+  for three seconds and view it through a phone camera, where the emitter shows up as a
+  violet glow. (The firmware header documents a 2N2222 driver stage for more range;
+  this is the simpler direct-drive bring-up wiring.)</em>
+</p>
 
 The turntable's only relevant input is the remote's **`START_PAUSE` button — a
 toggle**. There is no "stop" command, no position encoder, no feedback of any kind.
@@ -213,6 +250,29 @@ only the bottom band, leaving detailed geometry untouched → seat on Z=0.
 including see-through holes you meant to drill. Drill on an already-watertight solid,
 never before the repair pass.
 
+<p align="center">
+  <img src="docs/images/slicer-print-prep.jpg" width="720"
+       alt="A slicer application showing the reconstructed flower mesh laid out on a print bed, with an info panel reading 100 x 97.816 x 17.4267 mm, volume 21232.8 cubic mm, 158172 triangles.">
+  <br>
+  <em>The repaired mesh in the slicer, and the numbers are the point.
+  <strong>100 × 97.816 × 17.4267 mm</strong> — <code>--diameter-mm 100</code> asked for a
+  100 mm part and got one, which matters because STL carries no units and a slicer just
+  reads the raw numbers as millimetres. The filename is the pipeline written out:
+  <code>combined</code> mid + under rings, <code>raw</code> detail, base
+  <code>smooth</code>ed, then <code>drilled</code>.</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/original-and-print.jpg" width="620"
+       alt="The white ceramic daisy dish beside a dark grey 3D-printed copy of the same flower, both showing ridged petals and a ring of holes through the centre.">
+  <br>
+  <em>Original and reproduction. The print carries the petal ridges and — the detail
+  worth noticing — the <strong>ring of holes through the centre</strong>. Those are the
+  drilled through-holes: cut as a boolean difference through an
+  <em>already watertight</em> solid, because running the repair pass afterwards would
+  have dutifully filled every one of them back in.</em>
+</p>
+
 ## State of the code
 
 A working rig, honestly described. What that means:
@@ -253,6 +313,11 @@ to dominate results.
 | Glossy mug, light tent, matte backdrop | 10 / 36 | partial ~90° shell |
 | Matte textured ceramic flower, light tent | 36 / 36 | clean full mesh |
 | Same flower at 5° steps | 72 / 72 | clean; 87 k triangles at `full` |
+
+| | |
+|:--:|:--:|
+| <img src="docs/images/subject-on-turntable.jpg" width="290" alt="A white ceramic daisy dish with textured petals and a perforated yellow centre, sitting on the white turntable disc."> | <img src="docs/images/turntable-markers-topdown.jpg" width="290" alt="Top-down view of the daisy dish on the turntable disc, surrounded by coloured adhesive arrows and a steel rule laid on the disc surface."> |
+| **A subject that reconstructs.** Matte, textured, asymmetric, opaque — every petal ridge is a feature the solver can lock onto, and the shape looks different from every angle. The glossy, rotationally symmetric mug that failed had neither property. | **Markers that rotate *with* the object.** The arrows and steel rule are taped to the disc, not the backdrop. That is the whole distinction: they move with the subject, so they stay consistent frame to frame and add trackable texture. The same markers on the background would break the solve. |
 
 - A **feature-rich static background breaks the solve** — especially a monitor
   showing text. The object rotates and the background does not, and Object Capture
